@@ -1,0 +1,29 @@
+[
+  {
+    "pk": 1, 
+    "model": "entrega.cliente", 
+    "fields": {
+      "fone": "66 6 dura 6 mole", 
+      "email": "", 
+      "nome": "o loco meu"
+    }
+  }, 
+  {
+    "pk": 2, 
+    "model": "entrega.cliente", 
+    "fields": {
+      "fone": "8765-9999", 
+      "email": "", 
+      "nome": "Beltrano de tal"
+    }
+  }, 
+  {
+    "pk": 3, 
+    "model": "entrega.cliente", 
+    "fields": {
+      "fone": "8765-1234", 
+      "email": "", 
+      "nome": "Fulano de tal"
+    }
+  }
+]
