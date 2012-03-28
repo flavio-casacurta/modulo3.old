@@ -12,7 +12,7 @@ class Cliente(models.Model):
     logradouro  = models.CharField(max_length=32, db_index=True)
     numero      = models.PositiveIntegerField(u'Número')
     complemento = models.CharField(max_length=4, blank=True)
-    obs         = models.TextField(u'observação')
+    obs         = models.TextField(u'observação', blank=True)
     
     class Meta:
         unique_together = ('fone', 'ramal')
@@ -20,4 +20,24 @@ class Cliente(models.Model):
     def __unicode__(self):
         return self.nome
 
+    def endereco(self):
+        return u'%s, %s' % (self.logradouro, self.numero)
+    endereco.short_description = u'endereço'  
 
+class Pedido(models.Model):
+    inclusao = models.DateTimeField(auto_now_add=True)
+    cliente= models.ForeignKey(Cliente)
+    pronto = models.BooleanField(default=False)
+    entregador = models.ForeignKey('Entregador', null=True, blank=True)
+    partida = models.TimeField(null=True, blank=True)
+
+class Entregador(models.Model):
+    nome        = models.CharField(max_length=64)
+    
+    def __unicode__(self):
+        return self.nome
+        
+    class Meta:
+        verbose_name_plural = u'Entregadores'
+
+    
